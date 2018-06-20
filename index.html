@@ -1,0 +1,818 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Slot Machine Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Slot Machine</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="#example1">Simple</a></li>
+                    <li><a href="#example2">Specify numbers</a></li>
+                    <li><a href="#example6">Images</a></li>
+                    <li><a href="#example8">Sounds</a></li>
+                    <li><a href="#example10">Marks</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://paypal.me/kang7000/10">Buy Me a Coffee</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Example 1 - Simple</div>
+            <div class="panel-body">
+                <div class="well">
+                    A very simple slot machine that show random numbers each time played.
+                </div>
+                <div class="slotwrapper" id="example1">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-success btn-lg" id="btn-example1">Start Spin!</button>
+                    <a class="btn btn-primary btn-xs" role="button" data-toggle="collapse" href="#collapse-example1">
+                        View Code <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="collapse" id="collapse-example1">
+                    <div class="well">
+                        <code>
+                            $('#btn-example1').click(function() {<br/>
+                                &nbsp;&nbsp;$('#example1 ul').playSpin();<br/>
+                            });
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Example 2 - Specify numbers</div>
+            <div class="panel-body">
+                <div class="well">
+                    Specify end number before the slot machine spin. Insert number 1-7 in text box. (Error handling: show the first one if out of range)
+                </div>
+                <div class="slotwrapper" id="example2">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="col-sm-2 col-xs-4">
+                        <input type="text" class="form-control " id="txt-example2-1" value="7"/>
+                    </div>
+                    <div class="col-sm-2 col-xs-4">
+                        <input type="text" class="form-control " id="txt-example2-2" value="7"/>
+                    </div>
+                    <div class="col-sm-2 col-xs-4">
+                        <input type="text" class="form-control " id="txt-example2-3" value="7"/>
+                    </div>
+
+                    <button type="button" class="btn btn-success btn-lg" id="btn-example2">Start Spin!</button>
+                    <a class="btn btn-primary btn-xs" role="button" data-toggle="collapse" href="#collapse-example2">
+                        View Code <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="collapse" id="collapse-example2">
+                    <div class="well">
+                        <code>
+                            $('#btn-example2').click(function() {<br/>
+                            &nbsp;&nbsp;$('#example2 ul').playSpin({<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;endNum: [7, 7, 7],<br/>
+                            &nbsp;&nbsp;});<br/>
+                            });
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Example 3 - Stop sequence</div>
+            <div class="panel-body">
+                <div class="well">
+                    Specify stop sequence from left to right or right to left or totally random (like example 1)
+                </div>
+                <div class="slotwrapper" id="example3">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-success btn-lg" id="btn-example3-1">Start Spin! (Left to Right)</button>
+                    <button type="button" class="btn btn-success btn-lg" id="btn-example3-2">Start Spin! (Right to Left)</button>
+                    <a class="btn btn-primary btn-xs" role="button" data-toggle="collapse" href="#collapse-example3">
+                        View Code <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="collapse" id="collapse-example3">
+                    <div class="well">
+                        <code>
+                            $('#btn-example3').click(function() {<br/>
+                            &nbsp;&nbsp;$('#example3 ul').playSpin({<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;stopSeq: 'leftToRight', // rightToLeft<br/>
+                            &nbsp;&nbsp;});<br/>
+                            });
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Example 4 - Easing</div>
+            <div class="panel-body">
+                <div class="well">
+                    Easing effect, default: swing
+                    (Import <a href="http://api.jqueryui.com/easings/" target="_blank">jquery-easing</a> and select easing effect here: <a href="http://easings.net/" target="_blank">link</a>)
+                </div>
+                <div class="slotwrapper" id="example4">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-success btn-lg" id="btn-example4">Start Spin!</button>
+                    <a class="btn btn-primary btn-xs" role="button" data-toggle="collapse" href="#collapse-example4">
+                        View Code <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="collapse" id="collapse-example4">
+                    <div class="well">
+                        <code>
+                            $('#btn-example4').click(function() {<br/>
+                            &nbsp;&nbsp;$('#example4 ul').playSpin({<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;easing: 'easeOutBack',<br/>
+                            &nbsp;&nbsp;});<br/>
+                            });
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Example 5 - Spin Time</div>
+            <div class="panel-body">
+                <div class="well">
+                    Change spin time to wait longer or wait shorter. (Value is set in milliseconds, 1 second = 1,000 milliseconds)
+                </div>
+                <div class="slotwrapper" id="example5">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="col-sm-2 col-xs-12">
+                        <input type="text" class="form-control " id="txt-example5" value="1000"/>
+                    </div>
+                    <button type="button" class="btn btn-success btn-lg" id="btn-example5">Start Spin!</button>
+                    <a class="btn btn-primary btn-xs" role="button" data-toggle="collapse" href="#collapse-example5">
+                        View Code <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="collapse" id="collapse-example5">
+                    <div class="well">
+                        <code>
+                            $('#btn-example5').click(function() {<br/>
+                            &nbsp;&nbsp;$('#example5 ul').playSpin({<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;time: 1000,<br/>
+                            &nbsp;&nbsp;});<br/>
+                            });
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Example 6 - Images</div>
+            <div class="panel-body">
+                <div class="well">
+                    Not only limited to numbers !! It can be images as well.
+                </div>
+                <div class="slotwrapper" id="example6">
+                    <ul>
+                        <li><img src="http://placehold.it/200x200/d9534f"/></li>
+                        <li><img src="http://placehold.it/200x200/f0ad4e"/></li>
+                        <li><img src="http://placehold.it/200x200/5cb85c"/></li>
+                        <li><img src="http://placehold.it/200x200/337ab7"/></li>
+                        <li><img src="http://placehold.it/200x200/5bc0de"/></li>
+                        <li><img src="http://placehold.it/200x200/000000"/></li>
+                        <li><img src="http://placehold.it/200x200/ffffff"/></li>
+                    </ul>
+                    <ul>
+                        <li><img src="http://placehold.it/200x200/d9534f"/></li>
+                        <li><img src="http://placehold.it/200x200/f0ad4e"/></li>
+                        <li><img src="http://placehold.it/200x200/5cb85c"/></li>
+                        <li><img src="http://placehold.it/200x200/5bc0de"/></li>
+                        <li><img src="http://placehold.it/200x200/000000"/></li>
+                        <li><img src="http://placehold.it/200x200/ffffff"/></li>
+                        <li><img src="http://placehold.it/200x200/337ab7"/></li>
+                    </ul>
+                    <ul>
+                        <li><img src="http://placehold.it/200x200/337ab7"/></li>
+                        <li><img src="http://placehold.it/200x200/5bc0de"/></li>
+                        <li><img src="http://placehold.it/200x200/000000"/></li>
+                        <li><img src="http://placehold.it/200x200/ffffff"/></li>
+                        <li><img src="http://placehold.it/200x200/d9534f"/></li>
+                        <li><img src="http://placehold.it/200x200/f0ad4e"/></li>
+                        <li><img src="http://placehold.it/200x200/5cb85c"/></li>
+                    </ul>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-success btn-lg" id="btn-example6">Start Spin!</button>
+                    <a class="btn btn-primary btn-xs" role="button" data-toggle="collapse" href="#collapse-example6">
+                        View Code <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="collapse" id="collapse-example6">
+                    <div class="well">
+                        <code>
+                            $('#btn-example6').click(function() {<br/>
+                            &nbsp;&nbsp;$('#example6 ul').playSpin({});<br/>
+                            });
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Example 7 - onEnd and onFinish</div>
+            <div class="panel-body">
+                <div class="well">
+                    onEnd - Every number of slot number end function. (The given number is depending on number stop sequence)<br/>
+                    onFinish - All number of slot number end funtion. (The given number is by sequence from left to right)
+                </div>
+                <div class="slotwrapper" id="example7">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                </div>
+                <div>
+                    onEnd: <label id="lbl-example7-1"></label>
+                    onFinish: <label id="lbl-example7-2"></label>
+                    <button type="button" class="btn btn-success btn-lg" id="btn-example7">Start Spin!</button>
+                    <a class="btn btn-primary btn-xs" role="button" data-toggle="collapse" href="#collapse-example7">
+                        View Code <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="collapse" id="collapse-example7">
+                    <div class="well">
+                        <code>
+                            $('#btn-example7').click(function() {<br/>
+                            &nbsp;&nbsp;$('#lbl-example7-1').text('');<br/>
+                            &nbsp;&nbsp;$('#lbl-example7-2').text('');<br/>
+                            &nbsp;&nbsp;$('#example7 ul').playSpin({<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;onEnd: function(num) {<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('#lbl-example7-1').text($('#lbl-example7-1').text() + num.toString());<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;},<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;onFinish: function(num) {<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('#lbl-example7-2').text(num);<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+                            &nbsp;&nbsp;});<br/>
+                            });
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Example 8 - Sounds</div>
+            <div class="panel-body">
+                <div class="well">
+                    Sounds control is not implemented and left fully for programmer to program.<br/>
+                    Following is example on how to intergrate with sounds and music. (Open speaker!)
+                </div>
+                <div class="slotwrapper" id="example8">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-success btn-lg" id="btn-example8">Start Spin!</button>
+                    <a class="btn btn-primary btn-xs" role="button" data-toggle="collapse" href="#collapse-example8">
+                        View Code <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="collapse" id="collapse-example8">
+                    <div class="well">
+                        <code>
+                            $('#btn-example8').click(function() {<br/>
+                            &nbsp;&nbsp;sound.play(); // Start play the sound after click button<br/>
+                            &nbsp;&nbsp;$('#example8 ul').playSpin({<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;time: 2000,<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;endNum: [1, 2, 7],<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;stopSeq: 'rightToLeft',<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;onEnd: function() {<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ding.play(); // Play ding after each number is stopped<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;},<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;onFinish: function() {<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sound.pause(); // To stop the looping sound is pause it<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;});<br/>
+                            });
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Example 9 - Spin and Stop</div>
+            <div class="panel-body">
+                <div class="well">
+                    However, in some situations, user would like to stop the spinning manually
+                </div>
+                <div class="slotwrapper" id="example9">
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="text-danger">7</li>
+                    </ul>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-success btn-lg" id="btn-example9-start">Start Spin!</button>
+                    <button type="button" class="btn btn-success btn-lg" id="btn-example9-stop">Stop Spin!</button>
+                    <a class="btn btn-primary btn-xs" role="button" data-toggle="collapse" href="#collapse-example9">
+                        View Code <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="collapse" id="collapse-example9">
+                    <div class="well">
+                        <code>
+                            $('#btn-example9-start').click(function() {<br/>
+                            &nbsp;&nbsp;$('#example9 ul').playSpin({<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;manualStop: true<br/>
+                            &nbsp;&nbsp;});<br/>
+                            });<br/><br/>
+
+                            $('#btn-example9-stop').click(function() {<br/>
+                            &nbsp;&nbsp;$('#example9 ul').stopSpin();<br/>
+                            });
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Example 10 - Marks</div>
+            <div class="panel-body">
+                <div class="well">
+                    To stop each spin individually, it is required to generate startSpin on each spin individually.<br/>
+                </div>
+                <div class="slotwrapper" id="example10">
+                    <ul id="first">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>0</li>
+                    </ul>
+                    <ul id="second">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>0</li>
+                    </ul>
+                    <ul>
+                        <li>.</li>
+                    </ul>
+                    <ul id="third">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>0</li>
+                    </ul>
+                    <ul>
+                        <li>%</li>
+                    </ul>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-success btn-lg" id="btn-example10-start">Start Spin!</button>
+                    <button type="button" class="btn btn-success btn-lg" id="btn-example10-stop">Stop Spin!</button>
+                    <a class="btn btn-primary btn-xs" role="button" data-toggle="collapse" href="#collapse-example10">
+                        View Code <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="collapse" id="collapse-example10">
+                    <div class="well">
+                        <code>
+                            var numKeeptrack = 0;<br/>
+                            $('#btn-example10-start').click(function() {<br/>
+                            &nbsp;&nbsp;numKeeptrack = 3;<br/>
+                            &nbsp;&nbsp;$('#example10 #first').playSpin({<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;manualStop: true<br/>
+                            &nbsp;&nbsp;});<br/>
+                            &nbsp;&nbsp;$('#example10 #second').playSpin({<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;manualStop: true<br/>
+                            &nbsp;&nbsp;});<br/>
+                            &nbsp;&nbsp;$('#example10 #third').playSpin({<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;manualStop: true<br/>
+                            &nbsp;&nbsp;});<br/>
+                            });<br/><br/>
+
+                            $('#btn-example10-stop').click(function() {<br/>
+                            &nbsp;&nbsp;if (numKeeptrack == 3) {<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;$('#example10 #third').stopSpin();<br/>
+                            &nbsp;&nbsp;} else if (numKeeptrack == 2) {<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;$('#example10 #second').stopSpin();<br/>
+                            &nbsp;&nbsp;} else if (numKeeptrack == 1) {<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;$('#example10 #first').stopSpin();<br/>
+                            &nbsp;&nbsp;}<br/>
+                            &nbsp;&nbsp;numKeeptrack--;<br/>
+                            });
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Extra Example - Ajax</div>
+            <div class="panel-body">
+                <div class="well">
+                    Here is an extra coding example, for instance, ajax to server, generate random numbers and save into database, return the numbers.<br/>
+                    (Required basic javascript and server side language, eg: PHP)
+                    <a class="btn btn-primary btn-xs" role="button" data-toggle="collapse" href="#collapse-exampleextra">
+                        View Code <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="collapse" id="collapse-exampleextra">
+                    <div class="well">
+                        <code>
+                            $('#btn-click').click(function() {<br/>
+                            &nbsp;&nbsp;$.ajax({<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;url: // url<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;data: // pass data or leave it<br/>
+                            &nbsp;&nbsp;})<br/>
+                            &nbsp;&nbsp;.done(function(numbers) {<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;$('#slotmachine').playSpin({<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;endNum: numbers,<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;});<br/>
+                            &nbsp;&nbsp;});<br/>
+                            });
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="https://paypal.me/kang7000/10" class="btn btn-success pull-right">Buy Me a Coffee</a>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/slotmachine.min.js"></script>
+
+    <script type="text/javascript">
+        $('#btn-example1').click(function() {
+            $('#example1 ul').playSpin();
+        });
+
+        $('#btn-example2').click(function() {
+            var num1 = $('#txt-example2-1').val();
+            var num2 = $('#txt-example2-2').val();
+            var num3 = $('#txt-example2-3').val();
+            $('#example2 ul').playSpin({
+                endNum: [num1, num2, num3],
+            });
+        });
+
+        $('#btn-example3-1').click(function() {
+            $('#example3 ul').playSpin({
+                stopSeq: 'leftToRight'
+            });
+        });
+
+        $('#btn-example3-2').click(function() {
+            $('#example3 ul').playSpin({
+                stopSeq: 'rightToLeft'
+            });
+        });
+
+        $('#btn-example4').click(function() {
+            $('#example4 ul').playSpin({
+                easing: 'easeOutBack'
+            });
+        });
+
+        $('#btn-example5').click(function() {
+            var time = $('#txt-example5').val();
+            if (time < 0 || time == '') {
+                time = 0;
+            }
+            $('#example5 ul').playSpin({
+                time: time,
+            });
+        });
+
+        $('#btn-example6').click(function() {
+            $('#example6 ul').playSpin();
+        });
+
+        $('#btn-example7').click(function() {
+            $('#lbl-example7-1').text('');
+            $('#lbl-example7-2').text('');
+            $('#example7 ul').playSpin({
+                onEnd: function(num) {
+                    $('#lbl-example7-1').text($('#lbl-example7-1').text() + num.toString());
+                },
+                onFinish: function(num) {
+                    $('#lbl-example7-2').text(num);
+                }
+            });
+        });
+
+        var sound = new Audio('ringtones/spinning.mp3');
+        var ding = new Audio('ringtones/ding.wav');
+        // Loop of playing sound
+        sound.addEventListener('ended', function() {
+            this.currentTime = 0;
+            this.play();
+        }, false);
+
+        $('#btn-example8').click(function() {
+            sound.play(); // Start play the sound after click button
+            $('#example8 ul').playSpin({
+                time: 2000,
+                endNum: [1, 2, 7],
+                stopSeq: 'rightToLeft',
+                onEnd: function() {
+                    ding.play(); // Play ding after each number is stopped
+                },
+                onFinish: function() {
+                    sound.pause(); // To stop the looping sound is pause it
+                }
+            });
+        });
+
+        $('#btn-example9-start').click(function() {
+            $('#example9 ul').playSpin({
+                manualStop: true
+            });
+        });
+
+        $('#btn-example9-stop').click(function() {
+            $('#example9 ul').stopSpin();
+        });
+
+        var numKeeptrack = 0;
+        $('#btn-example10-start').click(function() {
+            numKeeptrack = 3;
+            $('#example10 #first').playSpin({
+                manualStop: true
+            });
+            $('#example10 #second').playSpin({
+                manualStop: true
+            });
+            $('#example10 #third').playSpin({
+                manualStop: true
+            });
+        });
+
+        $('#btn-example10-stop').click(function() {
+            if (numKeeptrack == 3) {
+                $('#example10 #third').stopSpin();
+            } else if (numKeeptrack == 2) {
+                $('#example10 #second').stopSpin();
+            } else if (numKeeptrack == 1) {
+                $('#example10 #first').stopSpin();
+            }
+            numKeeptrack--;
+        });
+    </script>
+</body>
+</html>
