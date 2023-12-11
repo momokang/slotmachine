@@ -67,10 +67,12 @@ var slotMachine = function (el, options, track) {
         time: 3000,             // Number: total time of spin animation
         loops: 6,               // Number: times it will spin during the animation
         manualStop: false,      // Boolean: spin until user manually click to stop
+        useStopTime: false,     // Boolean: use stop time        
+        stopTime: 5000,         // Number: total time of stop aniation
         stopSeq: 'random',      // String: sequence of slot machine end animation, random, leftToRight, rightToLeft
         endNum: 0,              // Number: animation end at which number/ sequence of list
         onEnd : $.noop,         // Function: run on each element spin end, it is passed endNum
-        onFinish: $.noop        // Function: run on all element spin end, it is passed endNum
+        onFinish: $.noop,       // Function: run on all element spin end, it is passed endNum
     };
 
     slot.spinSpeed = 0;
@@ -133,11 +135,14 @@ var slotMachine = function (el, options, track) {
         }
 
         var finalPos = -((slot.liHeight * slot.options.endNum) - slot.liHeight);
-        var finalSpeed = ((slot.spinSpeed * 1.5) * (slot.liCount)) / slot.options.endNum;
+        var finalTime = ((slot.spinSpeed * 1.5) * (slot.liCount)) / slot.options.endNum;
+        if (slot.options.useStopTime) {
+            finalTime = slot.options.stopTime;
+        }
 
         slot.$el
             .css('top', -slot.listHeight)
-            .animate({'top': finalPos}, finalSpeed, slot.options.easing, function () {
+            .animate({'top': finalPos}, parseInt(finalTime), slot.options.easing, function () {
                 slot.$el.find('li').last().remove(); // Remove the cloned row
 
                 slot.endAnimation(slot.options.endNum);

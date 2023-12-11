@@ -662,6 +662,84 @@
         </div>
 
         <div class="panel panel-primary">
+            <div class="panel-heading">Example 11 - Stop time</div>
+            <div class="panel-body">
+                <div class="well">
+                    Set stop time for a spin (Suitable for long list)<br/>
+                </div>
+                <div class="slotwrapper" id="example11" style="width: 300px;">
+                    <ul style="width: 300px;">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>10</li>
+                        <li>11</li>
+                        <li>12</li>
+                        <li>13</li>
+                        <li>14</li>
+                        <li>15</li>
+                        <li>16</li>
+                        <li>17</li>
+                        <li>18</li>
+                        <li>19</li>
+                        <li>20</li>
+                        <li>21</li>
+                        <li>22</li>
+                        <li>23</li>
+                        <li>24</li>
+                        <li>25</li>
+                        <li>26</li>
+                        <li>27</li>
+                        <li>28</li>
+                        <li>29</li>
+                        <li>30</li>
+                        <li>31</li>
+                        <li>32</li>
+                        <li>33</li>
+                        <li>34</li>
+                        <li>35</li>
+                        <li>36</li>
+                        <li>37</li>
+                        <li>38</li>
+                        <li>39</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="col-sm-2 col-xs-12">
+                        Spin time: <input type="text" class="form-control " id="txt-example11-time" value="3000"/>
+                    </div>
+                    <div class="col-sm-2 col-xs-12">
+                        Stop time: <input type="text" class="form-control " id="txt-example11-stoptime" value="3000"/>
+                    </div>
+
+                    <button type="button" class="btn btn-success btn-lg" id="btn-example11-start">Start Spin!</button>
+                    <a class="btn btn-primary btn-xs" role="button" data-toggle="collapse" href="#collapse-example11">
+                        View Code <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="collapse" id="collapse-example11">
+                    <div class="well">
+                        <code>
+                            $('#btn-example11-start').click(function() {<br/>
+                            &nbsp;&nbsp;$('#example11 ul').playSpin({<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;time: $('#txt-example11-time').val(),<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;useStopTime: true,<br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;stopTime: $('#txt-example11-stoptime').val(),<br/>
+                            &nbsp;&nbsp;});<br/>
+                            });
+                        </code>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
             <div class="panel-heading">Extra Example - Ajax</div>
             <div class="panel-body">
                 <div class="well">
@@ -814,6 +892,14 @@
                 $('#example10 #first').stopSpin();
             }
             numKeeptrack--;
+        });
+
+        $('#btn-example11-start').click(function() {
+            $('#example11 ul').playSpin({
+                time: $('#txt-example11-time').val(),
+                useStopTime: true,
+                stopTime: $('#txt-example11-stoptime').val(),
+            });
         });
     </script>
 </body>
